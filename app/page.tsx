@@ -53,7 +53,7 @@ function HomeContent() {
 
   // Load real scores directly on the client to avoid server-side request blocking
   const { data: livescoreData, error: livescoreError, isLoading: loading } = useSWR('livescores-direct', () => fetchLivescoresDirect(), {
-    refreshInterval: 25000,
+    refreshInterval: 60000,
     revalidateOnFocus: true,
     keepPreviousData: true,
   });
