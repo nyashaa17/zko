@@ -15,6 +15,15 @@ View your app in AI Studio: https://ai.studio/apps/fbba5e0d-9288-4b2c-bba4-e792b
 
 1. Install dependencies:
    `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+2. Copy [.env.example](.env.example) to `.env.local` and set the required values. `BZZOIRO_API_KEY` powers sports data features, and `GEMINI_API_KEY` is only needed when Gemini-powered features are enabled.
 3. Run the app:
    `npm run dev`
+4. Run tests:
+   `npm test`
+
+## Production process model
+
+The Nixpacks production start command runs Next.js through PM2 cluster mode so the app can use multiple CPU cores on a single Coolify server. By default PM2 starts one worker per available CPU core; set `WEB_CONCURRENCY` to a number such as `2` or `4` if you want to cap the worker count.
+
+- Native single-process start: `npm run start`
+- Clustered production start: `npm run start:cluster`
